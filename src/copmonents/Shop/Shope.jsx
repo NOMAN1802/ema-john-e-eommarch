@@ -3,11 +3,15 @@ import Product from '../Product/Product';
 import './Shope.css'
 const Shope = () => {
   const [products, setProducts] = useState([]);
+  
   useEffect(()=>{
     fetch('products.json')
     .then(res => res.json())
     .then(data =>setProducts(data))
-  },[])
+  },[]);
+  const handleAddToCart = (product) =>{
+    console.log(product)
+}
     return (
         <div className='shope-container'>
           <div className="product-container">
@@ -15,6 +19,7 @@ const Shope = () => {
                products.map(product => <Product
                key = {product.id}
                product ={product}
+               handleAddToCart ={handleAddToCart}
                ></Product>)
              }
           </div>
