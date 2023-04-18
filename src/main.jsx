@@ -12,6 +12,8 @@ import Orders from './copmonents/Orders/Orders';
 import Inventory from './copmonents/Inventory/Inventory';
 import Login from './copmonents/Login/Login';
 import cartProductsLoader from './Loaders/CartProductsLoader';
+import Checkout from './copmonents/Checkout/Checkout';
+import SignUp from './copmonents/SignUp/SignUp';
 
 const router = createBrowserRouter([
   {
@@ -32,8 +34,16 @@ const router = createBrowserRouter([
         element:<Inventory></Inventory>
       },
       {
+      path:'checkout',
+      element:<Checkout></Checkout>
+      },
+      {
         path:'login',
         element:<Login></Login>
+      },
+      {
+        path:'signup',
+        element:<SignUp/>
       }
 
     ]
