@@ -14,6 +14,8 @@ import Login from './copmonents/Login/Login';
 import cartProductsLoader from './Loaders/CartProductsLoader';
 import Checkout from './copmonents/Checkout/Checkout';
 import SignUp from './copmonents/SignUp/SignUp';
+import AuthProvider from './copmonents/providers/AuthProvider';
+import PrivateRouts from './copmonents/routes/PrivateRouts';
 
 const router = createBrowserRouter([
   {
@@ -31,11 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path:'inventory',
-        element:<Inventory></Inventory>
+        element:<PrivateRouts><Inventory></Inventory></PrivateRouts>
       },
       {
       path:'checkout',
-      element:<Checkout></Checkout>
+      element:<PrivateRouts><Checkout></Checkout></PrivateRouts>
       },
       {
         path:'login',
@@ -52,7 +54,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+        <AuthProvider>
         <RouterProvider router={router} />
+        </AuthProvider>
 
   </React.StrictMode>,
 )
